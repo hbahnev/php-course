@@ -51,7 +51,7 @@ $birthdate = $_POST['birthdate'];
 
 function Validation($user_name,$pass,$repeat_pass,$question,$answer,$mail,$first_name,$last_name,$birthdate)
 {
-	if ((!empty($user_name)) && (!empty($pass)) && (!empty($repeat_pass)) && (!empty($question)) && (!empty($answer)) && (!empty($mail)) && (!empty($first_name)) && (!empty($last_name)) && (!empty($birthdate)))
+	if ((!empty($user_name)) && (!empty($pass)) && (!empty($repeat_pass)) && (!empty($question)) && (!empty($answer)) && (!empty($mail)) && (!empty($first_name)) && (!empty($last_name)) && (!empty($birthdate)) && $pass == $repeat_pass)
 	{
 		return true;
 	}
@@ -61,7 +61,6 @@ function Validation($user_name,$pass,$repeat_pass,$question,$answer,$mail,$first
 	}
 }
 
-
 if(Validation($user_name,$pass,$repeat_pass,$question,$answer,$mail,$first_name,$last_name,$birthdate))
 {
 	
@@ -69,7 +68,7 @@ if(Validation($user_name,$pass,$repeat_pass,$question,$answer,$mail,$first_name,
 }
 else
 {
-	echo "Моля, попълнете всички данни!";
+	echo "Моля, попълнете всички данни коректно!";
 }
 
 
