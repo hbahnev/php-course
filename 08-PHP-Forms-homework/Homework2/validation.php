@@ -1,9 +1,15 @@
 <?php
 
-$user_name = $_POST['user_name'];
-$user_name = trim($user_name);
-$user_name = stripslashes($user_name);
-$user_name = htmlspecialchars($user_name);
+// Check if post var exists before cleaning it.
+$user_name = false;
+if( isset($_POST['user_name'] ))
+{
+    $user_name = $_POST['user_name'];
+    $user_name = trim($user_name);
+    $user_name = stripslashes($user_name);
+    $user_name = htmlspecialchars($user_name);    
+}
+
 
 $pass = $_POST['pass'];
 $pass = trim($pass);
