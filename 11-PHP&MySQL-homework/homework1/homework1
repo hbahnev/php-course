@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    
+</head>
+<style>
+	form{
+		font-size: 22px;
+		border: 1px solid blue;
+		padding: 10px;
+		margin:10px;
+	}
+	form > div {
+		margin-bottom: 12px;
+	}
+</style>
+
+<body>
+<?php
+	
+	
+$name = $_POST["name"];
+$age = $_POST["age"];
+$kindergarder_id = 2;
+	
+$servername = "localhost";
+$username = "user";
+$password = "SomeHardPassword1";
+$dbname = "children";
+		
+
+$connection = mysqli_connect($servername, $username, $password, $dbname);
+		
+	if (!$connection) {
+		die('Connect Error (' . mysqli_connect_errno() . ') '.mysqli_connect_error() );
+	} 
+		
+mysqli_set_charset($connection, "utf8");
+
+$action = "child insert";
+
+if(action == "child insert"){
+		
+$sql = "INSERT INTO children (Name, Age, KinderGarderID) VALUES ('$name', '$age','$kindergarder_id')";
+				   
+$queryReselt = mysqli_query($connection, $sql);
+		
+if ($queryReselt === TRUE) {
+			
+	echo "Успешно въведено дете с име ".$name." и години - ".$age." .";
+	} 
+else {
+	echo "Възникна грешка със заявката!";
+	}
+}
+			
+		
+?>
+
+<form action="homework1.php" method="POST" >
+	<div>
+		<span>Име на дете:</span>
+		<input type="text" name="name" />
+	</div>
+	<div>
+		<span>Години:</span>
+		<input type="text" name="age" />
+	</div>
+	<div>
+		<input type="hidden" name="check" value="1" />
+		<input type="submit" value="Въведи" />
+	</div>
+</form>	
+
+
+
+
+</body>
+</html>
