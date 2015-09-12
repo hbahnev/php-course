@@ -30,7 +30,6 @@ if($action = "insert"){
 			echo "Възникна грешка със заявката: " . $sql . "<br>" . $connection->error;
 		}
 	}
-}
 else if ($action == "select")
 {
 	$sql = "SELECT KinderGarderID,Name,Phone FROM kindergarder.kindergarder;";
